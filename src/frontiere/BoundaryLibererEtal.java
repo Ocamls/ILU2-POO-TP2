@@ -9,8 +9,18 @@ public class BoundaryLibererEtal {
 		this.controlLibererEtal = controlLibererEtal;
 	}
 
-	public void libererEtal(String nomVendeur) { // attention dans le code on se trouve à l'étal 1 sauf que c'est celle de l'indice 0 donc faire un -1 quand on veut supprimer l'étal
-		//TODO a completer
+	public void libererEtal(String nomVendeur) { // attention dans le code on se trouve ï¿½ l'ï¿½tal 1 sauf que c'est celle de l'indice 0 donc faire un -1 quand on veut supprimer l'ï¿½tal
+		if (controlLibererEtal.isVendeur(nomVendeur)){
+			System.out.println("Mais vous n'Ãªtes pas inscrit sur notre marchÃ© aujourd'hui !");
+		}else {
+			String[] donnesEtal = controlLibererEtal.libererEtal(nomVendeur); 
+			System.out.println("Vous avez vendu "+ donnesEtal[4]+ " sur " + donnesEtal[3]+ donnesEtal[2]+" .\n");
+			System.out.println("En revoir "+ donnesEtal[1] + ", passez une bonne journÃ©e.\n");
+			donnesEtal[0]= null; 
+			
+			
+			
+		}
 	}
 
 }
