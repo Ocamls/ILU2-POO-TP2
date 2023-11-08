@@ -32,16 +32,16 @@ public class BoundaryAcheterProduit {
 				int numVendeur = Clavier.entrerEntier("");
 				System.out.println(nomAcheteur + ", se déplace jusqu'à l'étal du vendeur " + vendeur[numVendeur-1].getNom());
 				System.out.println("Bonjour " + nomAcheteur);
-				int quantite = Clavier.entrerEntier("Combien de fleurs voulez-vous acheter ?\n");
+				int quantite = Clavier.entrerEntier("Combien de " + produit + " voulez-vous acheter ?\n");
 				
 				Etal etalVendeur = controlAcheterProduit.etalVendeur(vendeur[numVendeur-1].getNom());
 				int quantiteProduitEtal = etalVendeur.getQuantite();
-				if(quantite>quantiteProduitEtal) {
-					System.out.println(nomAcheteur + "veut acheter " + quantite + produit + ", malheureusement il n'y en a pas suffisament.\n");
+				if(quantite>quantiteProduitEtal&&quantite!=0) { // ici j'ai ajouté la deuxième condition il faut tester pour savoir si elle fonctionne
+					System.out.println(nomAcheteur + "veut acheter " + quantite + " " + produit + ", malheureusement il n'y en a pas suffisament.\n");
 					System.out.println(nomAcheteur + " repart avec les " + quantiteProduitEtal + " derniers.\n");
 					etalVendeur.acheterProduit(quantiteProduitEtal);
 				}else if(quantiteProduitEtal == 0) {
-					System.out.println(nomAcheteur + " veut acheter " + quantite + produit + ", malheureusement il n'y en a plus!\n");
+					System.out.println(nomAcheteur + " veut acheter " + quantite + " " + produit + ", malheureusement il n'y en a plus!\n");
 				}else{
 					System.out.println(nomAcheteur + " a acheté " + quantite + " de " + produit + " à " + vendeur[numVendeur-1].getNom());
 					etalVendeur.acheterProduit(quantite);

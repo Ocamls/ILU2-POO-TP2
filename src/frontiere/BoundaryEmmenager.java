@@ -20,13 +20,15 @@ public class BoundaryEmmenager {
 			question.append("2 - un gaulois.\n");
 			int choixUtilisateur = -1;
 			do {
-				choixUtilisateur = Clavier.entrerEntier(question.toString());
-				switch (choixUtilisateur) {
+
+				switch (Clavier.entrerEntier(question.toString())) {
 				case 1:
+					choixUtilisateur = 1;
 					emmenagerDruide(nomVisiteur);
 					break;
 
 				case 2:
+					choixUtilisateur = 2;
 					System.out.println("Bienvenu villageois " + nomVisiteur + "\n");
 					question.append("Quelle est votre force ?\n");
 					int choixForce = Clavier.entrerEntier(question.toString());
@@ -52,7 +54,7 @@ public class BoundaryEmmenager {
 			
 			effetPotionMax = Clavier.entrerEntier("Quelle est la force de potion la plus forte que vous produisiez ?\n");
 			if (effetPotionMin > effetPotionMax) {
-				System.out.println("Attention druide vous vous êtes trompé entre le minimum et le maximum\n");
+				System.out.println("Attention druide vous vous ï¿½tes trompï¿½ entre le minimum et le maximum\n");
 			}
 		}
 		controlEmmenager.ajouterDuide(nomVisiteur, choixForce, effetPotionMin, effetPotionMax); 
